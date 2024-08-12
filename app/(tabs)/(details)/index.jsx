@@ -9,18 +9,21 @@ const Index = () => {
     const contactPage = () =>{
         navigation.navigate('about');
     }
+    const handleLogout = () =>{
+      navigation.replace("login");
+    }
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.logoutButton}>
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
         <Text style={styles.logoutButtonText}>Logout</Text>
       </TouchableOpacity>
       <View style={styles.cardContainer}>
         <TouchableOpacity style={styles.card} onPress={profilePage}>
-          <Image source={require("../../../assets/profile.png")} style={styles.cardImage} />
+          <Image source={require("../../../assets/profileIcon.png")} style={styles.cardImage} />
           <Text style={styles.cardHeading}>Profile</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.card} onPress={contactPage} >
-          <Image source={require("../../../assets/aboutUS.jpg")} style={styles.cardImage} />
+          <Image source={require("../../../assets/Aboutusicon.png")} style={styles.cardImage} />
           <Text style={styles.cardHeading}>About us</Text>
         </TouchableOpacity>
       </View>
@@ -34,6 +37,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor:"#fff1e6",
   },
   logoutButton: {
     alignSelf: 'flex-end',

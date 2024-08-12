@@ -41,28 +41,18 @@ const Index = () => {
 
   const handleComment = async (itemId) => {
     try {
-
-      const response = await axios.post(`https://ngo-mauve-mu.vercel.app/api/data/${itemId}/comment`, { comment: commentText});
-      console.log("item",itemId);
+      const response = await axios.post(`https://ngo-mauve-mu.vercel.app/api/data/${itemId}/comment`, { comment: commentText });
+      console.log("item", itemId);
       console.log(response.data);
       await fetchData();
-      // const updatedDataList = dataList.map(item => {
-      //   if (item._id === itemId) {
-      //     return { ...item, comments: [...item.comments, { text: commentText }] };
-      //   }
-      //   return item;
-      // });
-      // setDataList(updatedDataList);
       setCommentText('');
       setCommentItemId(null);
     } catch (error) {
       console.error('Error commenting on the post:', error);
       alert('Error commenting on the post: ' + error.message);
     }
-    
   };
-  
-  
+
   const handleImagePress = (image) => {
     setSelectedImage(image);
     setModalVisible(true);
@@ -107,8 +97,8 @@ const Index = () => {
                 <Text style={styles.title}>Title: {item.title}</Text>
                 <Text>Description: {item.description}</Text>
                 <Text>Location: {item.location}</Text>
-                {/* <Text>Mandal: {item.mandal}</Text> */}
                 <Text>District: {item.district}</Text>
+            
                 {item.image ? (
                   <TouchableOpacity onPress={() => handleImagePress(item.image)}>
                     <Image
@@ -145,12 +135,8 @@ const Index = () => {
                     </TouchableOpacity>
                   </View>
                 )}
-                {item.comments.map((comment)=>(
-                  console.log(comment)
-                ))}
                 <View style={styles.commentsContainer}>
                   {item.comments.map((comment, index) => (
-                    
                     <View key={index} style={styles.comment}>
                       <Text style={styles.commentUser}>{comment.user}:</Text>
                       <Text style={styles.commentText}>{comment.comment}</Text>

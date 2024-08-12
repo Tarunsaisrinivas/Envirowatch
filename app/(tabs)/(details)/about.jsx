@@ -60,7 +60,7 @@ const About = () => {
       <View style={styles.section}>
         <Text style={styles.header}>Join Us</Text>
         <Text style={styles.paragraph}>
-          Be a part of the change. Download EnviroWatch today and help us create a sustainable future, one issue at a time. Together, we can make a difference.
+          Be a part of the change today and help us create a sustainable future, one issue at a time. Together, we can make a difference.
         </Text>
         <Text style={styles.contact}>
           For more information, support, or partnership inquiries, please contact us at 9999995556.

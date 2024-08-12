@@ -22,7 +22,8 @@
       },
       "permissions": [
         "android.permission.RECORD_AUDIO"
-      ]
+      ],
+      "package": "com.tarun_sai_srinivas.EnviroWatch"
     },
     "web": {
       "favicon": "./assets/favicon.png"

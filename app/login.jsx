@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, Text, TextInput, Image, TouchableOpacity, Alert, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, TextInput, Image, TouchableOpacity, Alert, View, ToastAndroid } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 import axios from "axios";
 import { Link } from "expo-router";
@@ -31,7 +31,8 @@ export default function Login() {
       });
 
       if (response.status === 200) {
-        Alert.alert("Login successful");
+        // Alert.alert("Login successful");
+        ToastAndroid.show("Login successful", ToastAndroid.SHORT);
         navigation.replace("(tabs)");
       } else {
         Alert.alert("Invalid username or password");
@@ -165,5 +166,6 @@ const styles = StyleSheet.create({
     color: "#007BFF",
     fontSize: 16,
     marginTop: 10,
+    textDecorationLine:"underline",
   },
 });

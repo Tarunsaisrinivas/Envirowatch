@@ -14,7 +14,6 @@ import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
-import * as Location from "expo-location";
 import { firebase } from "../../config";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -33,9 +32,36 @@ const Posts = () => {
     { label: "BHADRADRI KOTHAGUDEM", value: "BHADRADRI_KOTHAGUDEM" },
     { label: "HANUMAKONDA", value: "HANUMAKONDA" },
     { label: "HYDERABAD", value: "HYDERABAD" },
-    { label: "BHEEMPUR", value: "BHEEMPUR" },
     { label: "JAGTIAL", value: "JAGTIAL" },
     { label: "JANGOAN", value: "JANGOAN" },
+    { label: "JAYASHANKAR BHOOPALPALLY", value: "JAYASHANKAR_BHOOPALPALLY" },
+    { label: "JOGULAMBA GADWAL", value: "JOGULAMBA GADWAL" },
+    { label: "KAMAREDDY", value: "KAMAREDDY" },
+    { label: "KARIMNAGAR", value: "KARIMNAGAR" },
+    { label: "KHAMMAM", value: "KHAMMAM" },
+    { label: "KOMARAM BHEEM ASIFABAD", value: "KOMARAM_BHEEM_ASIFABAD" },
+    { label: "MAHABUBABAD", value: "MAHABUBABAD" },
+    { label: "MAHABUBNAGAR", value: "MAHABUBNAGAR" },
+    { label: "MANCHERIAL", value: "MANCHERIAL" },
+    { label: "MEDAK", value: "MEDAK" },
+    { label: "MEDCHAL-MALKAJGIRI", value: "MEDCHAL-MALKAJGIRI" },
+    { label: "MULUG", value: "MULUG" },
+    { label: "NAGARKURNOOL", value: "NAGARKURNOOL" },
+    { label: "NALGONDA", value: "NALGONDA" },
+    { label: "NARAYANPET", value: "NARAYANPET" },
+    { label: "NIRMAL", value: "NIRMAL" },
+    { label: "NIZAMABAD", value: "NIZAMABAD" },
+    { label: "PEDDAPALLI", value: "PEDDAPALLI" },
+    { label: "RAJANNA SIRCILLA", value: "RAJANNA_SIRCILLA" },
+    { label: "RANGAREDDY", value: "RANGAREDDY" },
+    { label: "SANGAREDDY", value: "SANGAREDDY" },
+    { label: "SIDDIPET", value: "SIDDIPET" },
+    { label: "SURYAPET", value: "SURYAPET" },
+    { label: "VIKARABAD", value: "VIKARABAD" },
+    { label: "WANAPARTHY", value: "WANAPARTHY" },
+    { label: "WARANGAL", value: "WARANGAL" },
+    { label: "YADADRI BHUVANAGIRI", value: "YADADRI BHUVANAGIRI" },
+
   ];
 
   const pickImage = async () => {
@@ -61,18 +87,6 @@ const Posts = () => {
     if (!result.cancelled) {
       setImage(result.assets[0].uri);
     }
-  };
-
-  const getCurrentLocation = async () => {
-    let { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== "granted") {
-      Alert.alert("Permission to access location was denied");
-      return;
-    }
-
-    let location = await Location.getCurrentPositionAsync({});
-    const coords = `${location.coords.latitude}, ${location.coords.longitude}`;
-    setLocation(coords);
   };
 
   const uploadMedia = async () => {
@@ -137,10 +151,10 @@ const Posts = () => {
   const isFormComplete = title && description && location && image && district;
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.scrollView}>
       <LinearGradient
         colors={["#fff1e6", "#fff1e6", "#fff1e6"]}
-        style={styles.container}
+        style={styles.gradient}
       >
         <TextInput
           style={styles.input}
@@ -209,10 +223,21 @@ const Posts = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  scrollView: {
+    flex: 1,
+    backgroundColor: "#fff1e6", 
+  },
+  gradient: {
     flex: 1,
     padding: 20,
     justifyContent: "center",
+  },
+  container: {
+    flex: 1,
+    padding: 20,
+    height:"100%",
+    justifyContent: "center",
+    backgroundColor:"#fff1e6",
   },
   input: {
     height: 50,
@@ -227,7 +252,8 @@ const styles = StyleSheet.create({
   locationContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 16,
+    marginBottom: 8,
+    width:360,
   },
   locationInput: {
     flex: 1,

@@ -98,7 +98,7 @@ export default function Register() {
             placeholderTextColor="#888"
           />
           <TouchableOpacity onPress={() => setSecureTextEntry(!secureTextEntry)}>
-            <Ionicons name={secureTextEntry ? "eye-off" : "eye"} size={24} color="gray" />
+            <Ionicons style={styles.eye} name={secureTextEntry ? "eye-off" : "eye"} size={24} color="gray" />
           </TouchableOpacity>
         </View>
         <TouchableOpacity style={styles.button} onPress={handleRegister}>
@@ -193,5 +193,9 @@ const styles = StyleSheet.create({
     color: "#007BFF",
     fontSize: 16,
     marginTop: 10,
+    textDecorationLine:"underline",
+  },
+  eye:{
+    marginRight:20,
   },
 });

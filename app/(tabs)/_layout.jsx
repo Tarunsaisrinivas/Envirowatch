@@ -6,6 +6,16 @@ export default function TabLayout() {
     <Tabs screenOptions={{ tabBarActiveTintColor: 'blue',tabBarStyle: { backgroundColor: '#606c38' },
   }}>
       <Tabs.Screen
+      name='(details)'
+      options={{
+        title: 'Home',
+        headerStyle: { backgroundColor: '#9d6b53' },
+        headerTintColor:"#fff", 
+        tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
+        tabBarStyle: { backgroundColor: '#9d6b53' },
+      }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: 'Posts',
@@ -25,15 +35,6 @@ export default function TabLayout() {
           tabBarStyle: { backgroundColor: '#9d6b53' },
         }}
       />
-      <Tabs.Screen
-      name='(details)'
-      options={{
-        title: 'Profile',
-        headerStyle: { backgroundColor: '#9d6b53' },
-        headerTintColor:"#fff", 
-        tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
-        tabBarStyle: { backgroundColor: '#9d6b53' },
-      }}
-      />
+    
     </Tabs>
 )};
